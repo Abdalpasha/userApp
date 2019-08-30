@@ -7,9 +7,6 @@ var Routes = /** @class */ (function () {
     function Routes() {
     }
     Routes.configRoutes = function (app) {
-        app.get('/', function (req, res) {
-            res.status(200).json({ "Success": "Server is running" });
-        });
         var userControllerObj = new userController_1.userAppController();
         app.post('/register', userControllerObj.registerUser);
         app.post('/login', userControllerObj.login);

@@ -158,8 +158,7 @@ var userAppService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log("name from queryString : ", req.query.email);
-                        return [4 /*yield*/, userAppModel_1.userAppModel.findOne({ name: req.query.email }).exec()];
+                        return [4 /*yield*/, userAppModel_1.userAppModel.findOne({ email: req.body.email }).exec()];
                     case 1:
                         userItem = _a.sent();
                         return [2 /*return*/, userItem];

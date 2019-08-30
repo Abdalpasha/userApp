@@ -21,6 +21,9 @@ var UserApp = /** @class */ (function () {
             console.log("server is started and running on port 3000");
         });
         this.configBodyParser();
+        this.app.get('/', function (req, res) {
+            res.status(200).json({ "Success": "Server is running" });
+        });
         route_1.Routes.configRoutes(this.app);
         db_1.Db.connectToMongoDb();
     }

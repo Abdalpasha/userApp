@@ -2,7 +2,6 @@ import express from "express";
 import { userAppModel } from "../model/userAppModel"
 import bcrypt from "bcrypt";
 import * as jwt from 'jsonwebtoken';
-import { createSecretKey } from "crypto";
 
 export class userAppService {
   public static async registerUser(req: express.Request, res: express.Response) {
@@ -62,8 +61,7 @@ export class userAppService {
 
   public static async getUserByEmail(req: express.Request, res: express.Response) {
     try {
-      console.log("name from queryString : ", req.query.email);
-      let userItem = await userAppModel.findOne({ name: req.query.email }).exec();
+      let userItem = await userAppModel.findOne({ email: req.body.email }).exec();
       return userItem;
     } catch (err) {
       console.log(err);
